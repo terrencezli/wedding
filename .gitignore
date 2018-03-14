@@ -1,0 +1,21 @@
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+/.idea/
+/.vscode
+atlassian-ide-plugin.xml
+
+# Mac OS files
+.DS_Store
+/nbproject
+/tmp
+/build
+
+# Generated or managed sources
+/generated-sources/
+/node_modules
+/coverage
+/typings
+npm-debug.log
+app/app-theme.css
