@@ -6,9 +6,11 @@ var express = require("express"),
     errorHandler = require('errorhandler'),
     methodOverride = require('method-override'),
     hostname = process.env.HOSTNAME || 'localhost',
-    port = parseInt(process.env.PORT, 10) || 4567,
+    port = parseInt(process.env.PORT, 10) || 8080,
     publicDir = process.argv[2] || __dirname + '/public',
-    path = require('path');
+    path = require('path'),
+    fs = require('fs'),
+    files = fs.readdirSync('./public/images/photo-gallery');
 
 app.get("/", function (req, res) {
     res.sendFile(path.join(publicDir, "/index.html"));
@@ -16,6 +18,14 @@ app.get("/", function (req, res) {
 
 app.get("/rsvp", function (req, res) {
     res.sendFile(path.join(publicDir, "/rsvp.html"));
+});
+
+app.get("/photos", function (req, res) {
+    res.sendFile(path.join(publicDir, "/photos.html"));
+});
+
+app.get("/photo-gallery", function (req, res) {
+    res.send({files: files});
 });
 
 app.use(methodOverride());
