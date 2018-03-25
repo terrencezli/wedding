@@ -58,6 +58,12 @@ label{
  font-family: 'Niconne', cursive;
  font-weight:400;
 }
+.links {
+    text-align: center;
+}
+. links a {
+
+}
 .videowrapper {
     float: none;
     clear: both;
@@ -75,6 +81,10 @@ label{
     height: 100%;
 }
 /*-- header --*/
+.navbar-inverse {
+    background-color: transparent;
+    border-color: transparent;
+}
 .header{
 	background: white;
 	padding:0.5em 0;
@@ -495,37 +505,39 @@ a.sign {
 }
 .banner-info h3{
   color: #fff;
-  font-size:5em;
-  font-weight:400;
+  font-size: 5em;
+  font-weight: 400;
   z-index: 999;
-  font-family: 'Lora', serif;
+    font-family: 'Josefin Sans', sans-serif;
 }
 .banner-info h3 lable{
   font-family: 'Niconne', cursive;
-  color:#00B198;
+  color:#6D55C1;
 }
 .banner-info p{
-  color: #fff;
-  font-size: 1em;
+    font-family: 'Calligraffitti', cursive;
+    color: #fff;
+  font-size: 2em;
   z-index: 999;
   text-align: center;
   margin: 0 auto;
   padding: 1em 0;
 }
 /*--welcome-section--*/
-.welcome-section {
+.our-story-section {
   padding:4em 0;
   text-align:center;
-
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #CFD8DC;
 }
-.welcome-section h2{
- font-family: 'Niconne', cursive;
-  color:#00B198;
+.our-story-section h2{
+    font-family: 'Josefin Sans', sans-serif;
+  color:#6D55C1;
   font-size:4em;
   font-weight:400;
   text-align:center;
 }
-.welcome-section  p {
+.our-story-section  p {
   font-size: 0.9em;
   margin: 1% auto 0;
   width: 75%;
@@ -707,17 +719,27 @@ a.sign {
   font-family: 'Niconne', cursive;
 }
 /*---story-grids--*/
-.story-section {
+.ceremony-section {
    padding: 4em 0;
-  background-color: #eee;
 }
-.story-section h3 {
-  font-family: 'Niconne', cursive;
-  color: #00B198;
+.ceremony-section h3 {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #4527A0;
   font-size: 4em;
   font-weight: 400;
   text-align: center;
 }
+.ceremony-section .map-location {
+    font-family: 'Calligraffitti', cursive;
+    font-size: 1.5em;
+}
+
+.ceremony-section .map-location button {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    background-color: lightpink;
+}
+
 .story-grids {
   margin-top: 5em;
 }
@@ -729,7 +751,7 @@ a.sign {
   -ms-border-radius: 50%;
 }
 .story-grid h4 {
-  color: #00B198;
+  color: #4527A0;
   text-align: center;
   font-size: 1.2em;
   font-weight:400;
@@ -746,6 +768,7 @@ a.sign {
 .event-section{
   padding: 4em 0 8em 0;
   text-align:center;
+    background-color: #CFD8DC;
 }
 .event-grids {
   margin-top: 2em;
@@ -1640,7 +1663,7 @@ ul.contact-grids h5{
 	}
 }
 @media (max-width:1280px){
-	.welcome-section h2,.story-section h3,.event-section h3,.about-section h3,.people-grides h3,h3.type,.signup-section h3{
+	.our-story-section h2,.ceremony-section h3,.event-section h3,.about-section h3,.people-grides h3,h3.type,.signup-section h3{
 	  font-size: 3.7em;
 	}
 	.bottom-section h3 {
@@ -1707,7 +1730,7 @@ ul.contact-grids h5{
 	  -ms-background-size: cover;
 	  min-height: 244px;
 	}
-	.welcome-section h2,.story-section h3,.event-section h3,.about-section h3,.people-grides h3,h3.type,.signup-section h3{
+	.our-story-section h2,.ceremony-section h3,.event-section h3,.about-section h3,.people-grides h3,h3.type,.signup-section h3{
 	  font-size: 3.6em;
 	}
 	.bottom-section h3 {
@@ -1762,7 +1785,7 @@ ul.contact-grids h5{
 	  -ms-background-size: cover;
 	  min-height: 340px;
 	}
-	.welcome-section h2, .story-section h3, .event-section h3, .about-section h3, .people-grides h3, h3.type,.signup-section h3 {
+	.our-story-section h2, .ceremony-section h3, .event-section h3, .about-section h3, .people-grides h3, h3.type,.signup-section h3 {
 	  font-size: 3.5em;
 	}
 	.banner-info h3 {
@@ -1787,10 +1810,10 @@ ul.contact-grids h5{
 	.story-grid p {
      font-size: 0.85em;
     }
-	.story-section {
+	.ceremony-section {
 	  padding: 3em 0;
 	}
-	.welcome-section {
+	.our-story-section {
 	  padding: 3em 0;
 	}
 	.story-grid h4 {
@@ -1899,7 +1922,7 @@ ul.contact-grids h5{
 	  bottom: -13%;
 	  left: 42%;
 	  }
-	  .welcome-section p {
+	  .our-story-section p {
 	  font-size: 0.9em;
 	  margin: 1% auto 0;
 	  width: 100%;
@@ -1988,7 +2011,7 @@ ul.contact-grids h5{
   padding:88px 0 0 0;
   height: 126px;
   }
-  .welcome-section h2, .story-section h3, .event-section h3, .about-section h3, .people-grides h3, h3.type, .signup-section h3 {
+  .our-story-section h2, .ceremony-section h3, .event-section h3, .about-section h3, .people-grides h3, h3.type, .signup-section h3 {
 	  font-size: 3.15em;
   }
   .story-grid {
@@ -2038,7 +2061,7 @@ ul.contact-grids h5{
 	  float: right;
 	  width: 100%;
 	}
-	  .moments,.contact,.typrography,.signup-section,.about-section,.people-section,.welcome-section{
+	  .moments,.contact,.typrography,.signup-section,.about-section,.people-section,.our-story-section{
 	  padding:2em 0;
 	  }
 	  .login-signup-form {
@@ -2094,7 +2117,7 @@ ul.contact-grids h5{
 	  -ms-background-size: cover;
 	  min-height: 228px;
 	}
-	.welcome-section p {
+	.our-story-section p {
 	  font-size: 0.85em;
 	  }
 	  .top-menu ul {
@@ -2136,7 +2159,7 @@ ul.contact-grids h5{
 	  -ms-background-size: cover;
 	  min-height: 109px;
 	}
-	.welcome-section h2, .story-section h3, .event-section h3, .about-section h3, .people-grides h3, h3.type, .signup-section h3 {
+	.our-story-section h2, .ceremony-section h3, .event-section h3, .about-section h3, .people-grides h3, h3.type, .signup-section h3 {
 	  font-size:2.8em;
 	}
 	ul.contact-grids li {
@@ -2254,7 +2277,7 @@ ul.contact-grids h5{
 	  padding: 0.8em 0 0 0;
 	  float: none;
 	}
-	.story-section {
+	.ceremony-section {
 	  padding: 2em 0;
 	}
 	.about-section p {
@@ -2330,10 +2353,10 @@ ul.contact-grids h5{
 	.callbacks_here a:after {
 	  border:2px solid #2F3338;
 	}
-	.welcome-section h2, .story-section h3, .event-section h3, .about-section h3, .people-grides h3, h3.type, .signup-section h3 {
+	.our-story-section h2, .ceremony-section h3, .event-section h3, .about-section h3, .people-grides h3, h3.type, .signup-section h3 {
 	  font-size: 2.2em;
 	}
-	.moments, .contact, .typrography, .signup-section, .about-section, .people-section, .welcome-section {
+	.moments, .contact, .typrography, .signup-section, .about-section, .people-section, .our-story-section {
 	  padding: 1.1em 0;
 	}
 	.story-grid {
@@ -2344,7 +2367,7 @@ ul.contact-grids h5{
 	.story-grid:nth-child(3), .event-grid:nth-child(3) {
 	  display: block;
 	}
-	.story-section {
+	.ceremony-section {
 	  padding: 1.1em 0;
 	}
 	.story-grid img {
