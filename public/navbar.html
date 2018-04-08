@@ -4,30 +4,40 @@
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
     <!-- Custom Theme files -->
     <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <script src="../js/jquery-1.11.1.min.js"></script>
     <!--webfonts-->
     <link href='https://fonts.googleapis.com/css?family=Lora:400,400italic|Niconne' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 </head>
 <body data-spy="scroll" data-target=".navbar">
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top" id="myNavbar">
     <div class="header" id="home">
         <div class="container">
             <div class="header-left">
                 <h5><a href="/">RC & TLI</a></h5>
                 <div class="clearfix"></div>
             </div>
-            <div class="header-right">
-                <ul class="f-icons">
-                    <li><a href="/rsvp">RSVP</a></li>
-                    <li><a href="/photos">PHOTOS</a></li>
-                </ul>
+            <div class="menu-icon" id="myMenu">
+                <a href="javascript:void(0);" style="font-size:22px;" class="icon" onclick="myFunction()">&#9776;</a>
+            </div>
+            <div class="header-right" id="myTabs" style="padding-top: 10px; text-align: center;">
+                <a href="/rsvp">RSVP</a>
+                <a href="/photos">PHOTOS</a>
                 <div class="clearfix"></div>
             </div>
             <div class="clearfix"> </div>
         </div>
     </div>
 </nav>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTabs");
+        if (x.className === "header-right") {
+            x.className += " responsive";
+        } else {
+            x.className = "header-right";
+        }
+    }
+</script>
 </body>
 </html>

@@ -116,24 +116,20 @@ label{
 .header-right {
   float: right;
   width: 18%;
+    font-family: 'Josefin Sans', sans-serif;
 }
-.header-right ul{
-	padding: .4em 0 0;
-	margin:0;
+.header-right a {
+    padding-right: 15%;
 }
-.header-right ul li{
-	display:inline-block;
-    margin-right: 20px;
+.header-right .icon {
+    display: none;
+    text-decoration: none;
 }
 .header-right h6{
    float: left;
   font-size: 0.9em;
   color: #fff;
   margin-top: 1.1em;
-}
-ul.f-icons{
-font-family: 'Josefin Sans', sans-serif;
- float:right;
 }
 .header-right ul li a.facebook,.header-right ul li a.p,.header-right ul li a.twitter{
 	background: url(../../images/icons.png) no-repeat 0px 0px;
@@ -1698,6 +1694,7 @@ ul.contact-grids h5{
 	  min-height:454px;
 	}
 	.banner-info {
+        font-size: 14px;
 	  width: 60%;
 	  margin: 10% auto 0;
 	  text-align: center;
@@ -1716,7 +1713,7 @@ ul.contact-grids h5{
 	}
 	.header-right {
 	  float: right;
-	  width: 21%;
+	  width: 24%;
 	}
 	.copy {
 	  padding: 0.8em 0 0 0;
@@ -1973,6 +1970,7 @@ ul.contact-grids h5{
 	  width: 76%;
 	  margin: 8% auto 0;
 	  text-align: center;
+        font-size: 14px;
 	}
 	.banner {
 	  background: url(../../images/irvington.jpg) no-repeat 0px 0px;
@@ -2050,7 +2048,7 @@ ul.contact-grids h5{
 	}
 	.header-right {
 	  float: right;
-	  width: 32%;
+	  width: 34%;
 	}
 	.people-section1 {
 	  width: 100%;
@@ -2128,7 +2126,8 @@ ul.contact-grids h5{
 	}
 	.banner-info {
 	  width: 100%;
-	  margin: 6% auto 0;
+	  margin: 10% 6%;
+        font-size: 14px;
 	  }
 	.header-right {
 	  float: right;
@@ -2264,10 +2263,6 @@ ul.contact-grids h5{
 	.b-lost {
 	  float: right;
 	    width: 73%;
-	}
-	ul.f-icons.two {
-	  float: left;
-      margin-left: 0.5em;
 	}
 	.footer {
 	  padding: 0.5em 0;
@@ -2548,4 +2543,58 @@ ul.contact-grids h5{
 	  padding: .3em 0 0;
 	  margin: 0;
 	}
+}
+
+.menu-icon {
+    display: none;
+}
+
+@media screen and (max-width: 640px) {
+    .menu-icon {
+        display: block;
+        float: right;
+    }
+    .header-right a:not(:last-child) {display: none;}
+    .header-right {
+        -webkit-transition: height 0.5s linear;
+        -moz-transition: height 0.5s linear;
+        -ms-transition: height 0.5s linear;
+        -o-transition: height 0.5s linear;
+        transition: height 0.5s linear;
+        width: 80%;
+    }
+    .header-right a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .banner-info {
+        padding-top: 10%;
+    }
+    .header-right.responsive {
+        -webkit-transition: height 0.5s linear;
+        -moz-transition: height 0.5s linear;
+        -ms-transition: height 0.5s linear;
+        -o-transition: height 0.5s linear;
+        transition: height 0.5s linear;
+        position: relative;
+        padding-top: 30px;
+    }
+    .header-right.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .header-right.responsive a {
+        transition: 1s;
+        display: block;
+        float: none;
+        text-align: center;
+    }
+}
+
+.rsvp-form-start h2 {
+    text-align: center;
 }
