@@ -24,8 +24,29 @@ app.get("/photos", function (req, res) {
     res.sendFile(path.join(publicDir, "/photos.html"));
 });
 
+app.get("/travel", function (req, res) {
+    res.sendFile(path.join(publicDir, "/travel.html"));
+});
+
+app.get("/gifts", function (req, res) {
+    res.sendFile(path.join(publicDir, "/gifts.html"));
+});
+
 app.get("/photo-gallery", function (req, res) {
     res.send({files: files});
+});
+
+app.get("/form", function (req, res) {
+    const name = req.query.name;
+    const db = {
+        'Grandma': 'https://goo.gl/forms/86rd8c0Iom8qJpJF2',
+        'Chau Family': 'https://goo.gl/forms/58MEqd2KG5ZuAEBo1'
+    };
+
+    res.send({
+        name: name,
+        form: db[name]
+    });
 });
 
 app.use(methodOverride());

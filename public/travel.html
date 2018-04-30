@@ -1,0 +1,177 @@
+<html>
+<head>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--<script src="../js/jquery-1.11.1.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Accommodations</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            padding-top: 50px;
+            height: 100%;
+        }
+        #legend {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            padding: 10px;
+            margin: 10px;
+            border: 3px solid #000;
+        }
+        #legend h3 {
+            margin-top: 0;
+        }
+        #legend img {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div id="includedNavbar"></div>
+<div id="map"></div>
+<div id="legend">
+    <h3>Legend</h3>
+    <h4>(Click Icon to View Details)</h4>
+</div>
+<script>
+    $(document).ready(function() {
+        $("#includedNavbar").load("navbar.html");
+    });
+
+    var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+    var icons = {
+        airport: {
+            name: 'Airport',
+            icon: iconBase + 'airports_maps.png'
+        },
+        church: {
+            name: 'Church',
+            icon: iconBase + 'church_maps.png'
+        },
+        hotel: {
+            name: 'Hotel',
+            icon: iconBase + 'lodging_maps.png'
+        },
+        reception: {
+            name: 'Reception',
+            icon: iconBase + 'dining_maps.png'
+        }
+    };
+
+    function getContent(location) {
+        return '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h3 id="firstHeading" class="firstHeading">' + location.heading + '</h3>'+
+            '<div id="bodyContent">'+
+            '<p>' + location.description + '</p>'+
+            '<br>'+
+            '<a href="' + location.link + '" target="_blank" style="color: dodgerblue">View in Google Maps</a>'+
+            '</div>'+
+            '</div>';
+    }
+
+    function isInfoWindowOpen(infoWindow){
+        var map = infoWindow.getMap();
+        return (map !== null && typeof map !== "undefined");
+    }
+
+    function initMap() {
+        var locations  = [{
+            heading: 'San Francisco Airport (SFO)',
+            description: 'This airport is more suitable for international travelers. Approximately 45 minutes from the ceremony site by car.',
+            link: 'https://goo.gl/maps/E8yFFJejgfq',
+            coordinates: {lat: 37.6213171, lng: -122.3811441},
+            icon: icons['airport'].icon
+        },
+        {
+            heading: 'Oakland Airport (OAK)',
+            description: 'This airport is more suitable for domestic travelers. Approximately 30 minutes from the ceremony site by car.',
+            link: 'https://goo.gl/maps/3iKA7YcJmTP2',
+            coordinates: {lat: 37.7125731, lng: -122.2219315},
+            icon: icons['airport'].icon
+        },
+        {
+            heading: 'San Jose Airport (SJC)',
+            description: 'This airport is more suitable for domestic travelers. Approximately 30 minutes from the ceremony site by car.',
+            link: 'https://goo.gl/maps/ppSxmXjFcxJ2',
+            coordinates: {lat: 37.3639514, lng: -121.9311262},
+            icon: icons['airport'].icon
+        },
+        {
+            heading: 'Tri-City Chinese Baptist Church',
+            description: 'This is the ceremony site.',
+            link: 'https://goo.gl/maps/Ji4pJToFRf62',
+            coordinates: {lat: 37.5754216, lng: -121.9732038},
+            icon: icons['church'].icon
+        },
+        {
+            heading: 'TownePlace Suites Newark Silicon Valley',
+            description: 'We have complementary wedding rates <a href="http://www.marriott.com/meeting-event-hotels/group-corporate-travel/groupCorp.mi?resLinkData=Chau-Li%20Wedding%5Esjctn%60clwclws%7Cclwclwo%7Cclwclwt%60119-219%60USD%60false%605%607/27/18%607/29/18%607/6/18&app=resvlink&stop_mobi=yes" target="_blank" style="color: dodgerblue">here</a>.',
+            link: 'https://goo.gl/maps/djVSigcMpy82',
+            coordinates: {lat: 37.5208262, lng: -121.9975347},
+            icon: icons['hotel'].icon
+        },
+        {
+            heading: 'Garré Vineyard & Winery',
+            description: 'This is the reception site',
+            link: 'https://goo.gl/maps/5qq1cxPjN6H2',
+            coordinates: {lat: 37.6657123, lng: -121.767954},
+            icon: icons['reception'].icon
+        }];
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 11,
+            center: {lat: 37.589981, lng: -122.229363}
+        });
+
+        locations.map((location) => {
+            var infoWindow = new google.maps.InfoWindow({
+                content: getContent(location),
+                maxWidth: 200
+            });
+            var marker = new google.maps.Marker({
+                position: location.coordinates,
+                map: map,
+                icon: location.icon,
+                title: location.heading
+            });
+            if (location.heading.includes('Church') || location.heading.includes('Winery')) {
+                infoWindow.open(map, marker);
+            }
+
+            marker.addListener('click', function() {
+                if (isInfoWindowOpen(infoWindow)){
+                    infoWindow.close();
+                } else {
+                    infoWindow.open(map, marker);
+                }
+            });
+        });
+
+
+        var legend = document.getElementById('legend');
+        for (var key in icons) {
+            var type = icons[key];
+            var name = type.name;
+            var icon = type.icon;
+            var div = document.createElement('div');
+            div.innerHTML = '<img src="' + icon + '"> ' + name;
+            legend.appendChild(div);
+        }
+
+        map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(legend);
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcwk5GIz4fFKmVKmgCwKW59gcPx7Vh_DA&callback=initMap">
+</script>
+</body>

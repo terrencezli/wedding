@@ -115,11 +115,11 @@ label{
 }
 .header-right {
   float: right;
-  width: 18%;
+  width: 40%;
     font-family: 'Josefin Sans', sans-serif;
 }
 .header-right a {
-    padding-right: 15%;
+    padding-right: 20px;
 }
 .header-right .icon {
     display: none;
@@ -511,9 +511,9 @@ a.sign {
   color:#6D55C1;
 }
 .banner-info p{
-    font-family: 'Calligraffitti', cursive;
+    font-family: 'Lobster', cursive;
     color: #fff;
-  font-size: 2em;
+  font-size: 3em;
   z-index: 999;
   text-align: center;
   margin: 0 auto;
@@ -726,14 +726,14 @@ a.sign {
   text-align: center;
 }
 .ceremony-section .map-location {
-    font-family: 'Calligraffitti', cursive;
+    font-family: 'Lobster', cursive;
     font-size: 1.5em;
 }
 
 .ceremony-section .map-location button {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 10px;
-    background-color: lightpink;
+    background-color: lightblue;
 }
 
 .story-grids {
@@ -1569,12 +1569,12 @@ ul.contact-grids h5{
 }
 /*--footer--*/
 .footer {
-   background: #00b198;
+   background: #6D55C1;
    padding: 0.5em 0;
 }
 .copy {
   float:left;
-  background: #00b198;
+  background: #6D55C1;
    padding: 1em 0 0 0;
 }
 .copy p {
@@ -1713,7 +1713,7 @@ ul.contact-grids h5{
 	}
 	.header-right {
 	  float: right;
-	  width: 24%;
+	  width: 50%;
 	}
 	.copy {
 	  padding: 0.8em 0 0 0;
@@ -2597,4 +2597,9 @@ ul.contact-grids h5{
 
 .rsvp-form-start h2 {
     text-align: center;
+}
+
+.form-control {
+    width: 30%;
+    margin: 30px auto;
 }

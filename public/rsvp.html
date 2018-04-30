@@ -19,31 +19,15 @@
 <body>
 <div id="includedNavbar"></div>
 <div class="rsvp-form-start" id="rsvp-form-start" style="padding-top: 5%">
-	<!-- Unsplashed background photo -->
-	<div class="rsvp-background">
-		<h2>RSVP</h2>
-		<img src="images/rsvp-background.jpg"  style="display: block; margin: 0 auto; max-height: 100vh; max-width: 100vh;">
-	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" role="dialog" style="padding-top: 10%;">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Please enter the name on the invitation:</h4>
-				</div>
-				<div class="modal-body">
-					<div id="error-message" style="display: none; color: red;">
-						<p>Please enter a valid name.</p>
-					</div>
-					<input type="text" id="nameText">
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-default" onclick="findForm()">Submit</button>
-				</div>
+	<div class="our-story-section">
+		<div class="container">
+			<h2>RSVP</h2>
+			<h3>Enter the name on your invitation</h3>
+			<div id="error-message" style="display: none">
+				<p style="color: red;">Please enter a valid name.</p>
 			</div>
+			<input class="form-control" id="nameText" type="text" placeholder="e.g. Mr. & Mrs. John Doe">
+			<button type="button" class="btn btn-default" onclick="findForm()">Submit</button>
 		</div>
 	</div>
 </div>
@@ -64,37 +48,34 @@
         }
     });
 
-	function getFormWithName(name) {
-		var nameFormMap = {
-		    'Grandma': "https://docs.google.com/forms/d/e/1FAIpQLSdyCHNxyNOvLPiw1spk09l4VmZyJstDkEmSSXppCgYd3i1uBQ/viewform?embedded=true",
-		};
-
-		if (!nameFormMap[name]) {
-		    return ""
-		}
-
-		return nameFormMap[name];
+	function getFormWithName(name, callback) {
+        $.get(
+            "/form",
+            {name: name},
+            function(data) {
+                callback(data.form);
+            }
+        );
     }
 
     function findForm() {
-        var name = document.getElementById("nameText").value;
-        var link = getFormWithName(name);
-
-        if (!link) {
-            document.getElementById("error-message").style.display = 'block';
-		} else {
-            var iframe = document.createElement('iframe');
-            iframe.frameBorder = 0;
-            iframe.marginHeight = 0;
-            iframe.marginWidth = 0;
-            iframe.width = "100%";
-            iframe.height = "100%";
-            iframe.id = "google-form";
-            iframe.setAttribute("src", link);
-            document.getElementById("rsvp-form-start").style.display = 'none';
-            $('#myModal').modal('hide');
-            document.getElementById("rsvp-form").appendChild(iframe);
-		}
+        var name = document.getElementById("nameText").value.trim();
+        getFormWithName(name, function (form) {
+            if (!form) {
+                document.getElementById("error-message").style.display = 'block';
+            } else {
+                var iframe = document.createElement('iframe');
+                iframe.frameBorder = 0;
+                iframe.marginHeight = 0;
+                iframe.marginWidth = 0;
+                iframe.width = "100%";
+                iframe.height = "100%";
+                iframe.id = "google-form";
+                iframe.setAttribute("src", form);
+                document.getElementById("rsvp-form-start").style.display = 'none';
+                document.getElementById("rsvp-form").appendChild(iframe);
+            }
+        });
     }
 </script>
 </body>
