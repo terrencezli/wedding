@@ -39,8 +39,7 @@ app.get("/photo-gallery", function (req, res) {
 app.get("/form", function (req, res) {
     const name = req.query.name;
     const db = {
-        'Grandma': 'https://goo.gl/forms/86rd8c0Iom8qJpJF2',
-        'Chau Family': 'https://goo.gl/forms/58MEqd2KG5ZuAEBo1'
+        'Mr. & Mrs. I.T. Wong': 'https://docs.google.com/forms/d/e/1FAIpQLSep5fBL54k-_NQOZ58uy4hAeV9MgP9x22a2cBFKpVOIqIOM4w/viewform?usp=sf_link'
     };
 
     res.send({

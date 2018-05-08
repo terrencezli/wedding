@@ -12,6 +12,10 @@
 <script>
     $(document).ready(function() {
         $("#includedNavbar").load("navbar.html");
+
+        $("iframe").ready(function (){
+            console.log($(".zola-registry-iframe").contents().find(".registry-header"))
+        });
     });
 </script>
 <body>

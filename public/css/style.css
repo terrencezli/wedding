@@ -230,7 +230,7 @@ a.sign {
   -moz-background-size: cover;
   -o-background-size: cover;
   -ms-background-size: cover;
-  min-height: 860px;
+  min-height: 1000px;
 }
 .banner-navigation {
   background-color: #2F3338;
@@ -495,12 +495,12 @@ a.sign {
   border: 5px solid #2F3338;
 }
 .banner-info{
-   width:60%;
-  margin: 21% auto 0;
+   width:100%;
+  margin: 50% auto 0;
   text-align: center;
 }
 .banner-info h3{
-  color: #fff;
+  color: #493267;
   font-size: 5em;
   font-weight: 400;
   z-index: 999;
@@ -512,12 +512,12 @@ a.sign {
 }
 .banner-info p{
     font-family: 'Lobster', cursive;
-    color: #fff;
+    color: 	#493267;
   font-size: 3em;
   z-index: 999;
   text-align: center;
   margin: 0 auto;
-  padding: 1em 0;
+  padding: 0;
 }
 /*--welcome-section--*/
 .our-story-section {
@@ -1641,7 +1641,7 @@ ul.contact-grids h5{
 	  min-height: 586px;
 	}
 	.banner-info {
-	  width: 60%;
+	  width: 100%;
 	  margin: 16% auto 0;
 	  text-align: center;
 	}
@@ -1695,8 +1695,8 @@ ul.contact-grids h5{
 	}
 	.banner-info {
         font-size: 14px;
-	  width: 60%;
-	  margin: 10% auto 0;
+	  width: 100%;
+	  margin: 50% auto 0;
 	  text-align: center;
 	}
 	.banner-info h3 {
@@ -2602,4 +2602,10 @@ ul.contact-grids h5{
 .form-control {
     width: 30%;
     margin: 30px auto;
+}
+
+#links img {
+    margin: 5px;
+    width: 15%;
+    height: 15%;
 }
