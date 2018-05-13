@@ -1642,7 +1642,6 @@ ul.contact-grids h5{
 	}
 	.banner-info {
 	  width: 100%;
-	  margin: 16% auto 0;
 	  text-align: center;
 	}
 	.banner-info h3 {
@@ -2608,4 +2607,29 @@ ul.contact-grids h5{
     margin: 5px;
     width: 15%;
     height: 15%;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+h1 {
+    line-height: 1em;
+}
+h2,
+.links {
+    text-align: center;
+}
+
+@media (min-width: 481px) {
+    .navigation {
+        list-style: none;
+        padding: 0;
+    }
+    .navigation li {
+        display: inline-block;
+    }
+    .navigation li:not(:first-child):before {
+        content: '| ';
+    }
 }
